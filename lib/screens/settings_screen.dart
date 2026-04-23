@@ -486,6 +486,25 @@ class _SettingsBody extends StatelessWidget {
                             }
                           },
                         ),
+                        const SizedBox(height: 16),
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton.icon(
+                            onPressed: () {
+                              Get.toNamed('/api-endpoints');
+                            },
+                            icon: const Icon(Icons.api_rounded, size: 18),
+                            label: const Text('Sample Endpoints & Testing'),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: context.text,
+                              side: BorderSide(color: context.border),
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                          ),
+                        ),
                         if (apiServer.errorMessage.value.isNotEmpty) ...[
                           const SizedBox(height: 10),
                           Text(

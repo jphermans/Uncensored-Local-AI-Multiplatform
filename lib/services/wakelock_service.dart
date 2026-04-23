@@ -20,11 +20,6 @@ class WakelockService extends GetxService {
           channelDescription: 'Keeps downloads and AI inference running',
           channelImportance: NotificationChannelImportance.LOW,
           priority: NotificationPriority.LOW,
-          // iconData: const NotificationIconData(
-          //   resType: ResourceType.mipmap,
-          //   resPrefix: ResourcePrefix.ic,
-          //   name: 'launcher',
-          // ),
         ),
         iosNotificationOptions: const IOSNotificationOptions(
           showNotification: true,
@@ -38,6 +33,9 @@ class WakelockService extends GetxService {
           allowWifiLock: true,
         ),
       );
+      
+      // Request notification permission for Android 13+
+      await FlutterForegroundTask.requestNotificationPermission();
     }
     return this;
   }
